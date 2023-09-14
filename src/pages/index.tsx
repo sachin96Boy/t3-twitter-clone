@@ -1,8 +1,11 @@
 import { useUser } from "@clerk/nextjs";
 import Head from "next/head";
+import { api } from "~/utils/api";
 
 export default function Home() {
   const user = useUser();
+  const newdata = api.posts.getAll.useQuery();
+  console.log(newdata.data);
   return (
     <>
       <Head>
